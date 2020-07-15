@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
-import { Link, NavLink, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 import styles from "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
