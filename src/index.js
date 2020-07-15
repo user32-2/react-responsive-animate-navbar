@@ -102,10 +102,9 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                           {navLinks.map((link, i) => (
                             <li key={i}>
                               <NavLink
-                                exact
                                 to={link.to}
                                 activeClassName={styles.home}
-                                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -64) }}
+                                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -32) }}
                                 smooth
                               >
                                 {link.name}
