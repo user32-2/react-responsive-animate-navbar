@@ -42,6 +42,11 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
   const [background, setBackground] = useState("rgb(25, 25, 25)");
   const [logoUrl, setLogoUrl] = useState("https://svgshare.com/i/KHh.svg");
   const [width, setWidth] = useState(window.innerWidth);
+  const scrollWidthOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -40; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  }
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
@@ -105,7 +110,7 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                                 smooth
                                 to={link.to}
                                 activeClassName={styles.home}
-                                scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -40) }}
+                                scroll={scrollWithOffset}
                               >
                                 {link.name}
                               </NavLink>
