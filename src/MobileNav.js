@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
