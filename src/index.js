@@ -41,11 +41,6 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
   const [background, setBackground] = useState("rgb(25, 25, 25)");
   const [logoUrl, setLogoUrl] = useState("https://svgshare.com/i/KHh.svg");
   const [width, setWidth] = useState(window.innerWidth);
-  const scrollWithOffset = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -40; 
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-  }
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
