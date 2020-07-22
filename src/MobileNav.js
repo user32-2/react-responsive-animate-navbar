@@ -12,6 +12,11 @@ library.add(fab, faBars);
 const MobileNav = ({ width, logoUrl, background, navLinks, socialIcon }) => {
   let nav = useRef(null);
   const [click, setClick] = useState(false);
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -40; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  }
   const socialLinks = socialIcon.map((icon) => (
     <li>
       <a target="_blank" href={icon.url}>
@@ -50,15 +55,21 @@ const MobileNav = ({ width, logoUrl, background, navLinks, socialIcon }) => {
           nav = el;
         }}
       >
-        <ul>
-          {navLinks.map((link, i) => (
-            <li key={i}>
-              <Router>
-                <Link to={link.to}>{link.name}</Link>
-              </Router>
-            </li>
-          ))}
-        </ul>
+        <Router>
+          <ul>
+            {navLinks.map((link, i) => (
+              <li key={i}>
+                <NavLink
+                  smooth
+                  to={link.to}
+                  scroll={scrollWithOffset}
+                  >
+                   {link.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </Router>
         {width < 700 ? (
           <div className={styles.mobileNavII}>
             <div className={styles.MoNavSocialII}>
