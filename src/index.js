@@ -109,7 +109,7 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                                 scroll={scrollWithOffset}
                               >
                                 {link.name}
-                              </NavLink>
+                              </Link>
                             </li>
                           ))}
                         </ul>
