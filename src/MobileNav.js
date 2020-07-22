@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { Link } from "gatsby"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -13,11 +12,6 @@ library.add(fab, faBars);
 const MobileNav = ({ width, logoUrl, background, navLinks, socialIcon }) => {
   let nav = useRef(null);
   const [click, setClick] = useState(false);
-  const scrollWithOffset = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -40; 
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-  }
   const socialLinks = socialIcon.map((icon) => (
     <li>
       <a target="_blank" href={icon.url}>
@@ -56,21 +50,17 @@ const MobileNav = ({ width, logoUrl, background, navLinks, socialIcon }) => {
           nav = el;
         }}
       >
-        <Router>
           <ul>
             {navLinks.map((link, i) => (
               <li key={i}>
-                <NavLink
-                  smooth
+                <Link
                   to={link.to}
-                  scroll={scrollWithOffset}
                   >
                    {link.name}
-                </NavLink>
+                </Link>
               </li>
             ))}
           </ul>
-        </Router>
         {width < 700 ? (
           <div className={styles.mobileNavII}>
             <div className={styles.MoNavSocialII}>
