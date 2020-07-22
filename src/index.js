@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
-import { Link, BrowserRouter as Router } from "react-router-dom";
-import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { Link } from "gatsby"
 import styles from "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -81,8 +80,7 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                 >
                   <div className={styles.header}>
                     <div className={styles.navLogo}>
-                      <Router>
-                        <Link to="">
+                        <Link to="/">
                           <div className="logo-container">
                             <Timeline totalProgress={progress} paused>
                               <Tween
@@ -98,15 +96,13 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                             </Timeline>
                           </div>
                         </Link>
-                      </Router>
                     </div>
 
                     <div className={styles.navLinks}>
-                      <Router>
                         <ul>
                           {navLinks.map((link, i) => (
                             <li key={i}>
-                              <NavLink
+                              <Link
                                 smooth
                                 to={link.to}
                                 activeClassName={styles.home}
@@ -117,7 +113,6 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                             </li>
                           ))}
                         </ul>
-                      </Router>
                     </div>
                     <div className={styles.navSocial}>
                       <ul>
